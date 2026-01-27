@@ -36,26 +36,26 @@ The datasets used in this paper are not directly included in this repository due
 <table>
   <thead>
     <tr>
-      <th style="width:20%">Dataset Name</th>
-      <th style="width:70%">Description</th>
-      <th style="width:10%">Access Link</th>
+      <th>Dataset Name</th>
+      <th>Description</th>
+      <th>Access Link</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>COVID-19-rumor dataset</td>
       <td>A large-scale Twitter dataset for COVID-19 rumor detection and propagation</td>
-      <td><a href="https://github.com/MickeysClubhouse/COVID-19-rumor-dataset">https://github.com/MickeysClubhouse/COVID-19-rumor-dataset</a></td>
+      <td><a href="https://github.com/MickeysClubhouse/COVID-19-rumor-dataset">GitHub</a></td>
     </tr>
     <tr>
       <td>PHEME dataset</td>
       <td>A benchmark dataset for rumor detection and veracity classification</td>
-      <td><a href="https://figshare.com/articles/dataset/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078">https://figshare.com/articles/dataset/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078</a></td>
+      <td><a href="https://figshare.com/articles/dataset/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078">Figshare</a></td>
     </tr>
     <tr>
       <td>Weibo</td>
       <td>Chinese social media dataset for rumor detection</td>
-      <td><a href="https://github.com/thunlp/CED">https://github.com/thunlp/CED</a></td>
+      <td><a href="https://github.com/thunlp/CED">GitHub</a></td>
     </tr>
   </tbody>
 </table>
