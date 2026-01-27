@@ -1,6 +1,9 @@
-# DTA-GAT: Dynamic Time-Aware Graph Attention Networks 
+# DTA-GAT: Dynamic Topic Attractiveness Graph Attention Network 
 
-A PyTorch implementation of the DTA-GAT model for derived topic propagation prediction on social media.
+This repository provides the official implementation of the DTA-GAT (Dynamic Topic Attractiveness Graph Attention Network) proposed in our paper for modeling and predicting the dynamic propagation patterns of derivative topics in social media.
+The model integrates topic attractiveness modeling and time-aware attention mechanisms to capture the temporal evolution of topic relationships and user engagement in large-scale social networks.
+
+The released code supports the complete experimental pipeline, including data preprocessing, topic co-occurrence network construction, attractiveness modeling, dynamic graph representation learning, and propagation trend prediction.
 
 ## Project Structure
 
@@ -23,52 +26,39 @@ DTA-GAT/
 ├── results/                   # Experiment results
 └── configs/                   # Configuration files
 ```
+## Requirements
 
-## Data Format
+numpy==2.1.2
+pandas==2.2.3
+scipy==1.14.1
 
-Each dataset should contain a `propagation.txt` file with the format:
-```
-派生话题ID,父话题ID,传播规模,时间戳
-```
+torch>=2.6.0
+torch_geometric==2.6.1
+tqdm==4.66.5
 
-## Installation
+## Dataset
+
+The datasets used in this paper are not directly included in this repository due to licensing restrictions, but they are publicly available and can be obtained from the following sources:
+
+| Dataset Name            | Description                                                                 | Access Link |
+|-------------------------|-----------------------------------------------------------------------------|-------------|
+| COVID-19-rumor dataset  | A large-scale Twitter dataset for COVID-19 rumor detection and propagation | https://github.com/MickeysClubhouse/COVID-19-rumor-dataset |
+| PHEME dataset           | A benchmark dataset for rumor detection and veracity classification        | https://figshare.com/articles/dataset/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078 |
+
+
+
+## Install Dependencies
 
 ```bash
+#Clone the project:
+
+git clone https://github.com/Relf-mry/DTA-GAT.git
+
+#Install dependencies
 pip install -r requirements.txt
 ```
 
-## Usage
 
-### Run Experiments
-
-```bash
-cd scripts
-python run_experiments.py
-```
-
-This will run experiments 5.2.1 (Topic Structure Feature Representation) and 5.2.2 (Topic Attractiveness Effectiveness) on both datasets.
-
-### Results
-
-Results will be saved in the `results/` directory:
-- `figure_5_2_1.png` - Topic structure feature comparison
-- `figure_5_2_2.png` - Topic attractiveness comparison  
-- `all_results.json` - Detailed numerical results
-
-## Model Components
-
-### 1. Topic Structure Feature Representation
-- Normalized co-occurrence strength (Equation 7)
-- Node2vec embedding (Equations 8-12)
-
-### 2. Topic Attractiveness Quantification
-- Topic influence (Equation 14)
-- Topic relatedness (Equation 15)
-- Multi-linear regression fusion (Equation 16)
-
-### 3. Time-Aware GAT Layer
-- Weighted average co-occurrence time (Equation 17)
-- Time-sensitive attention (Equations 18-21)
 
 ## Citation
 
