@@ -37,8 +37,8 @@ The datasets used in this paper are not directly included in this repository due
   <thead>
     <tr>
       <th style="width:20%">Dataset Name</th>
-      <th style="width:50%">Description</th>
-      <th style="width:30%">Access Link</th>
+      <th style="width:70%">Description</th>
+      <th style="width:10%">Access Link</th>
     </tr>
   </thead>
   <tbody>
