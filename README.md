@@ -16,7 +16,7 @@ scipy==1.14.1
 torch>=2.6.0
 torch_geometric==2.6.1
 tqdm==4.66.5
-
+```
 
 ### Install Dependencies
 
@@ -33,12 +33,32 @@ pip install -r requirements.txt
 
 The datasets used in this paper are not directly included in this repository due to licensing restrictions, but they are publicly available and can be obtained from the following sources:
 
-| Dataset Name           | Description                                                              | Access Link |
-|------------------------|---------------------------------------------------------------------------|-------------|
-| COVID-19-rumor dataset | A large-scale Twitter dataset for COVID-19 rumor detection and propagation | https://github.com/MickeysClubhouse/COVID-19-rumor-dataset |
-| PHEME dataset          | A benchmark dataset for rumor detection and veracity classification       | https://figshare.com/articles/dataset/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078 |
-| Weibo                  | Chinese social media dataset for rumor detection                          | https://github.com/thunlp/CED |
- 
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%">Dataset Name</th>
+      <th style="width:50%">Description</th>
+      <th style="width:30%">Access Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COVID-19-rumor dataset</td>
+      <td>A large-scale Twitter dataset for COVID-19 rumor detection and propagation</td>
+      <td><a href="https://github.com/MickeysClubhouse/COVID-19-rumor-dataset">https://github.com/MickeysClubhouse/COVID-19-rumor-dataset</a></td>
+    </tr>
+    <tr>
+      <td>PHEME dataset</td>
+      <td>A benchmark dataset for rumor detection and veracity classification</td>
+      <td><a href="https://figshare.com/articles/dataset/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078">https://figshare.com/articles/dataset/PHEME_dataset_for_Rumour_Detection_and_Veracity_Classification/6392078</a></td>
+    </tr>
+    <tr>
+      <td>Weibo</td>
+      <td>Chinese social media dataset for rumor detection</td>
+      <td><a href="https://github.com/thunlp/CED">https://github.com/thunlp/CED</a></td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## Citation
