@@ -1,0 +1,62 @@
+{
+  "5.2.1": {
+    "PHEME": {
+      "NoW-Node2vec": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      },
+      "NormW-Node2vec": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      },
+      "NormW-DeepWalk": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      }
+    },
+    "Twitter_COVID19": {
+      "NoW-Node2vec": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      },
+      "NormW-Node2vec": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      },
+      "NormW-DeepWalk": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      }
+    }
+  },
+  "5.2.2": {
+    "PHEME": {
+      "Baseline": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      },
+      "Single-Dimension": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      },
+      "Multi-Dimension": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      }
+    },
+    "Twitter_COVID19": {
+      "Baseline": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      },
+      "Single-Dimension": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      },
+      "Multi-Dimension": {
+        "MAE": 999.99,
+        "RMSE": 999.99
+      }
+    }
+  }
+}
