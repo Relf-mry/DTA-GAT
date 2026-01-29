@@ -1,14 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Node2vec话题嵌入模块
-基于论文公式8-12实现Node2vec算法,用于学习衍生话题共现网络的结构特征
-
-论文引用:
-- 公式8: 随机游走跳转概率 P(c_i = x | c_{i-1} = v)
-- 公式9: 跳转概率计算 π_vx = α_pq(m,x) · w_vx
-- 公式10: 修正因子 α_pq(m,x) 基于距离d_mx
-- 公式11: Skip-gram优化目标
-- 公式12: 话题结构特征表示 T_struct ∈ R^{|V| × d}
+基于偏置随机游走学习话题共现网络的结构特征
 """
 
 import numpy as np
@@ -32,11 +25,11 @@ class Node2vecEmbedding:
         初始化Node2vec参数
         
         Args:
-            p: 返回参数,控制返回前一个节点的概率 (论文公式10)
-            q: 进出参数,控制DFS/BFS倾向 (论文公式10)
+            p: 返回参数,控制返回前一个节点的概率 
+            q: 进出参数,控制DFS/BFS倾向
             walk_length: 每次随机游走的长度
             num_walks: 每个节点的游走次数
-            embedding_dim: 嵌入维度 (论文公式12中的d)
+            embedding_dim: 嵌入维度
             window_size: Skip-gram窗口大小
             workers: 并行线程数
             epochs: Skip-gram训练轮数
@@ -56,9 +49,6 @@ class Node2vecEmbedding:
     def _compute_transition_probs(self, graph, edge_weights):
         """
         计算转移概率
-        
-        基于论文公式9-10计算随机游走的转移概率
-        π_vx = α_pq(m,x) · w_vx
         
         Args:
             graph: 邻接列表 {node: [neighbors]}
@@ -94,7 +84,7 @@ class Node2vecEmbedding:
             for dst_nbr in neighbors:
                 weight = edge_weights.get((dst, dst_nbr), 1.0)
                 
-                # 计算修正因子 α_pq(m,x) (论文公式10)
+                # 计算修正因子 α_pq(m,x)
                 if dst_nbr == src:
                     # 返回前一个节点, d_mx = 0
                     alpha = 1.0 / self.p
@@ -105,7 +95,7 @@ class Node2vecEmbedding:
                     # 非邻居节点, d_mx = 2
                     alpha = 1.0 / self.q
                 
-                # π_vx = α_pq(m,x) · w_vx (论文公式9)
+                # π_vx = α_pq(m,x) · w_vx
                 unnormalized_probs.append(alpha * weight)
             
             if len(unnormalized_probs) > 0:
@@ -175,9 +165,6 @@ class Node2vecEmbedding:
     def _node2vec_walk(self, graph, start_node, alias_nodes, alias_edges):
         """
         执行一次Node2vec随机游走
-        
-        基于论文公式8实现偏置随机游走:
-        P(c_i = x | c_{i-1} = v) = π_vx / Z
         
         Args:
             graph: 邻接列表
@@ -286,7 +273,7 @@ class Node2vecEmbedding:
         
         logging.info(f"  生成了 {len(walks)} 条游走序列")
         
-        # 使用Skip-gram训练嵌入 (论文公式11)
+        # 使用Skip-gram训练嵌入
         logging.info(f"  训练Skip-gram模型 (维度={self.embedding_dim})...")
         self.model = Word2Vec(
             sentences=walks,
@@ -298,7 +285,7 @@ class Node2vecEmbedding:
             epochs=self.epochs
         )
         
-        # 提取嵌入矩阵 (论文公式12: T_struct ∈ R^{|V| × d})
+        # 提取嵌入矩阵
         self.embeddings = np.zeros((len(nodes), self.embedding_dim))
         for i, node in enumerate(nodes):
             if str(node) in self.model.wv:
@@ -313,7 +300,7 @@ class Node2vecEmbedding:
         获取话题结构特征表示
         
         Returns:
-            T_struct: 话题结构特征 [num_nodes, embedding_dim] (论文公式12)
+            T_struct: 话题结构特征 [num_nodes, embedding_dim]
         """
         if self.embeddings is None:
             raise ValueError("模型尚未训练,请先调用fit()方法")
